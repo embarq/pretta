@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/plangular/dist/plangular.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Music Player</h1>
+      </ion-header-bar>
+      <ion-content plangular="http://soundcloud.com/mrsjxn/tracks">
+				<div class="card">
+					<div class="item item-divider padding">
+						<span ng-bind="track.user.username"></span> - <span ng-bind="track.title"></span>
+						<small>
+							<span ng-bind="currentTime | hhmmss"></span>
+							<span ng-bind="duration | hhmmss"></span>
+						</small>
+					</div>
+					<div class="padding">
+						<progress ng-value="currentTime / duration || 0">
+						  {{ currentTime / duration || 0 }}
+						</progress>
+					</div>
+					<div class="item item-divider button-bar">
+						<button class="button button-small button-dark" ng-click="play()">
+							<i class="icon ion-play"></i>
+						</button>
+						<button class="button button-small button-dark" ng-click="pause()">
+							<i class="icon ion-pause"></i>
+						</button>
+					</div>
+				</div>
+				
+				<ul class="list">
+				  <li 
+					  class="item"
+				  	ng-repeat="track in tracks track by $index" 
+				  	ng-click="playPause($index)"
+				  	ng-class="{'active': player.playing === track.src}">
+		      	{{track.user.username}} - {{track.title}}
+				  </li>
+				</ul>
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
