@@ -3,7 +3,7 @@
 
 Run the app: `ionic run android`
 
-The app implement using this plugins and libraries:
+The app was implement using this plugins and libraries:
 
 - [Cordova Media Plugin](http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-media/index.html#constants) - for playing songs
 - [Cordova Music Controls Plugin](https://github.com/homerours/cordova-music-controls-plugin) - music controls for Cordova applications
