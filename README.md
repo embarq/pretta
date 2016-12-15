@@ -1,7 +1,10 @@
 # Pretta 
 ### Simple SoundCloud audio-player for Android 
 
-Run the app: `ionic run android`
+Run the app: 
+```bash
+$ ionic run android
+```
 
 The app was implement using this plugins and libraries:
 
